@@ -1,6 +1,6 @@
 Requirements to Polyspace Preparation Script
 
-OK - Take the tar.gz file and extract it to a specific place
+OK - Take the tar.gz or zip file and extract it to a specific place
 OK - Find the html report and extract its component table to get the TAG and ID of the component
 OK - Create/update first infrastructure folder (M:\Polyspace\ComponentName)
 TODO - Checkout SVN: ModuleTest, Polyspace and Source (by Trunk or by specific tag)
@@ -8,4 +8,9 @@ OK- Copy files and folders of the ID component
 OK - Duplicate the proj file according to variants
 - For each proj file, change the path info
 - For each proj file, delete the unused modules (variants)
-- Create a GUI
+- Create a GUI:
+--> Field to ask tar.gz or zip file
+--> Checkbox to extract the tar.gz or zip file (maybe this process has already made)
+--> Field to ask destination folder
+--> Field to select one or more components
+--> Button to start the preparation
