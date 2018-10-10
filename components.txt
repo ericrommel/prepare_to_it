@@ -1,0 +1,17 @@
+EcuMProxy_R8
+ErrorReactionManager
+ADCDriverCD_MPC5744P
+ActuatorManager_R10
+ActuatorManager_R11
+ActuatorNvmHandler_R10
+ActuatorSupervisor
+ActuatorTester
+ActuatorTester_R11
+AngleAndSpeedCalculator_Atan
+AngleAndSpeedCalculator_TLoop
+AngleCalculator_Atan_R10
+BatteryCurrentEstimator
+BatteryCurrentLimitProcessor
+BatteryRelayHAL
+BatteryVoltageMeasurement
+CPUGuard_MPC5744P

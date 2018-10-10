@@ -1,11 +1,15 @@
 import Tkinter as tk
+import ttk
+
 import Tkconstants, tkFileDialog
 from os import path, environ
-
+from string import ascii_letters as alphabet
 
 class MainScreen:
+
     def __init__(self, master):
         self.username = environ['USERNAME']
+
         self.Q = '\\europe.prestagroup.com\D1\\04_project_documents'  # Q drive
         ifile = 'Q:\\INT_Gen_EPAS_R10\\11_Measurement\\03_EcuSw\\PolySpace\\PolySpace_4.18.33.0_2018_09_26-13_50_27.zip'
         ifolder = 'Q:\\INT_Gen_EPAS_R10\\11_Measurement\\03_EcuSw\\PolySpace\\'
@@ -19,6 +23,17 @@ class MainScreen:
 
         self.lbl_work_destination_folder = tk.Label(self.master, text='Work destination folder: ')
         self.lbl_work_destination_folder.grid(column=0, row=1)
+
+        # Combobox with all components #
+        # ['<Write down here or press CTRL+CLICK to select more then one>']
+        self.lbl_components = tk.Label(self.master, text='Select components: ')
+        self.lbl_components.grid(column=0, row=2)
+
+        self.lbox_component = tk.Listbox(self.master, width=90, height=5, selectmode='multiple')
+        for i in self.fill_combo():
+            self.lbox_component.insert(tk.END, i)
+
+        self.lbox_component.grid(column=1, row=2)
 
         self.content_txt_targz = tk.StringVar()
         self.content_txt_destination = tk.StringVar()
@@ -70,6 +85,27 @@ class MainScreen:
 
         self.content_txt_destination.set(self.master.directory)
         self.txt_logs_dir.focus()
+
+    def fill_combo(self):
+        comp_list = []
+        with open('components.txt') as f:
+            for i in f.readlines():
+                comp_list.append(i)
+        return comp_list
+
+    def find_in_cbox(self, event):
+        keypress = event.char.upper()
+
+        components = self.fill_combo()
+        if keypress in alphabet:
+            for index, comp_name in components:
+                if comp_name[0] >= keypress:
+                    self.lbox_component.current(index)
+                    break
+
+    def callback_combo(event):
+        print("method is called")
+
 
 
 class Demo2:
